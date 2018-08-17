@@ -8,7 +8,7 @@ module Api
          render json: @user
       end
 
-      def show
+      def login
         @user = User.find_by(email: params["email"])
         render json: @user
       end
