@@ -3,13 +3,13 @@ module Api
     class UsersController < ApplicationController
 
       def create
-         @user = User.new(name: params["name"], email: params["email"])
-         @user.save
+         @user = User.new(name: params["user"]["name"], email: params["user"]["email"])
+				 @user.save
          render json: @user
       end
 
       def login
-        @user = User.find_by(email: params["email"])
+        @user = User.find_by(email: params["user"]["email"])
         render json: @user
       end
 
