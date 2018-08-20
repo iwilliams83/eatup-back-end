@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :favorites
   namespace :api do
     namespace :v1 do
-      post 'search', to: 'restaurants#search'
+      post 'search', to: 'users#search'
       post 'login', to: 'users#login'
       post 'signup', to: 'users#create'
+      post 'favorites', to: 'favorites#create'
     end
   end
 

@@ -1,3 +1,3 @@
 class FavoriteSerializer < ActiveModel::Serializer
-  attributes :id, :integer, :integer
+  attributes :id, :restaurant
 end

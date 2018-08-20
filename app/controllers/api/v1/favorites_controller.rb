@@ -3,8 +3,10 @@ module Api
     class FavoritesController < ApplicationController
 
      def create
-       @favorite = Favorite.new(user_id: params["user"]["id"], restaurant_id: params["restaurant"]["id"])
-     end
+       @favorite = Favorite.new(user_id: params["user"], restaurant: params["restaurant"])
+       @favorite.save
+			 render json: @favorite
+		 end
 
     end
   end
