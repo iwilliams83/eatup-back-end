@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       post 'login', to: 'users#login'
       post 'signup', to: 'users#create'
       post 'favorites', to: 'favorites#create'
+      post 'restaurants', to: 'restaurants#create'
+      get 'users/:id', to: 'users#show'
+
     end
   end
 

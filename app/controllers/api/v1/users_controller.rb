@@ -23,6 +23,20 @@ module Api
 				render json: @response
 			end
 
+			def show
+				user_id = params['id']
+				my_favorites = Favorite.all.select do |fave|
+					fave.user_id == user_id.to_i
+				end
+
+				my_favorites.each do |fave|
+					# instead of making multiple fetches to the yelp API,
+					# create restaurant model to store favorite restaurants
+					# send data from table to front end & render favorite 'result' cards
+				end
+
+			end
+
 			private
 
 			def geo_locate(arr)
