@@ -25,21 +25,12 @@ module Api
 
 			def show
 				user_id = params['id']
-				my_favorites = Favorite.all.select do |fave|
-					fave.user_id == user_id.to_i
-				end
 
-				faveRestaurants = []
+				user_favorites = User.find(user_id).favorites.map do |favorite|
+					Restaurant.find_by_yelpId(favorite.restaurant)
+				end.compact
 
-				my_favorites.each do |fave|
-					restaurant = Restaurant.find do |rest|
-						rest.yelpId == fave.restaurant
-					end
-					faveRestaurants << restaurant
-				end
-			
-				render json: faveRestaurants
-
+				render json: user_favorites
 			end
 
 			private
