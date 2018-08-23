@@ -14,13 +14,8 @@ module Api
 		 end
 
 		 def destroy
-        byebug
-	      favorite = Favorite.all.find do | fave |
-	          fave.user_id == params["id"] && fave.restaurant == params["yelpId"]
-				end
-
+	      favorite = Favorite.find(params[:id])
 			  favorite.destroy
-
 		 end
 
     end
