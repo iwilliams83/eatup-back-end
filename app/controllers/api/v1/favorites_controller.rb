@@ -5,7 +5,7 @@ module Api
 
      def create
        @favorite = Favorite.new(user_id: params["user"], restaurant: params["restaurant"])
-       @favorite.save
+			 @favorite.save
 			 render json: @favorite
 		 end
 
