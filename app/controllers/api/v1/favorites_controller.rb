@@ -18,9 +18,8 @@ module Api
 	      favorite = Favorite.find do | fave |
 	          fave.user_id == id && fave.restaurant == params["yelpId"]
 				end
-				
-			  favorite.destroy
 
+			  favorite.destroy 
 		 end
 
     end
